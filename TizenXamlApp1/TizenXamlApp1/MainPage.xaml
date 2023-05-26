@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TizenXamlApp1.MainPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!-- 배경화면 -->
+            <Image x:Name="background1"
+                   Source="wall1.jpg"
+                   AbsoluteLayout.LayoutBounds="0, 0, 1920, 1080"
+                   />
+            <Image x:Name="background2"
+                   Source="wall2.jpg"
+                   Opacity="0"
+                   AbsoluteLayout.LayoutBounds="0, 0, 1920, 1080"
+                   />
+            <Image x:Name="background3"
+                   Source="wall3.jpg"
+                   Opacity="0"
+                   AbsoluteLayout.LayoutBounds="0, 0, 1920, 1080"
+                   />
+            <Image x:Name="background4"
+                   Source="wall4.jpg"
+                   Opacity="0"
+                   AbsoluteLayout.LayoutBounds="0, 0, 1920, 1080"
+                   />
+            <StackLayout>
+                <AbsoluteLayout>
+                    <!-- Chat GPT -->
+                    <BoxView BackgroundColor="Green" Opacity="0.8"
+                             CornerRadius="10"
+                             AbsoluteLayout.LayoutBounds="40, 40, 670, 120"
+                             />
+                    <Entry x:Name="input" Placeholder="Send a message."
+                           BackgroundColor="White" Opacity="0.8"
+                           FontSize="30"
+                           WidthRequest="300" HeightRequest="150"
+                           AbsoluteLayout.LayoutBounds="50, 50, 650, 100"
+                           />
+                    <BoxView BackgroundColor="Black" Opacity="0.8"
+                             CornerRadius="10"
+                             AbsoluteLayout.LayoutBounds="720, 50, 100, 100"
+                             />
+                    <Image x:Name="sendImg" Source="send.png"
+                           AbsoluteLayout.LayoutBounds="720, 50, 100, 100"
+                           />
+                    <Button x:Name="sendButton" 
+                            WidthRequest="100" HeightRequest="100" 
+                            Clicked="OnSendButtonClicked"
+                            AbsoluteLayout.LayoutBounds="720, 50, 100, 100"
+                            />
+                    <BoxView BackgroundColor="Green" Opacity="0.8"
+                             CornerRadius="10" 
+                             AbsoluteLayout.LayoutBounds="40, 180, 670, 200"
+                             />
+
+                    <Label x:Name="output"
+                            BackgroundColor="White" Opacity="0.8"
+                            FontSize="30" TextColor="Black"
+                            AbsoluteLayout.LayoutBounds="50, 190, 650, 180"
+                            />
+
+                    <!-- 아날로그 시계 -->
+                    <BoxView BackgroundColor="White"
+                             CornerRadius="360" Opacity="0.8"
+                             AbsoluteLayout.LayoutBounds="1620, 0, 300, 300"
+                             />
+                    <Image x:Name="clockImage"
+                           Source="analog.png" 
+                           AbsoluteLayout.LayoutBounds="1620, 0, 300, 300"
+                           />
+
+                    <BoxView x:Name="aHour"
+                             Color="Black"
+                             AnchorY="1"
+                             AbsoluteLayout.LayoutBounds="1770, 80, 8, 70"
+                             />
+
+                    <BoxView x:Name="aMinute"
+                             Color="Black"
+                             AnchorY="1"
+                             AbsoluteLayout.LayoutBounds="1770, 50, 8, 100"
+                             />
+
+                    <BoxView x:Name="aSecond"
+                             Color="Red"
+                             AnchorY="0.8"
+                             AbsoluteLayout.LayoutBounds="1770, 54, 8, 120"
+                             />
+                </AbsoluteLayout>
+                <!-- 디지털 시계 -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label x:Name="dHour" 
+                           FontAttributes="Bold" 
+                           FontSize="160" 
+                           VerticalOptions="End" 
+                           HorizontalOptions="Center" 
+                           TextColor="Black"
+                           />
+                    <Label x:Name="dColon" 
+                           Text =":" 
+                           FontSize="200" 
+                           VerticalOptions="End" 
+                           HorizontalOptions="Center" 
+                           TextColor="Black"
+                           />
+                    <Label x:Name="dMinute" 
+                           FontAttributes="Bold" 
+                           FontSize="160" 
+                           VerticalOptions="End" 
+                           HorizontalOptions="Center" 
+                           TextColor="Black"
+                           />
+                </StackLayout>
+                <!-- 날짜 및 요일 -->
+                <StackLayout>
+                    <Label x:Name="dDate"
+                       FontAttributes="Bold"
+                       FontSize="50"
+                       TextColor="Black"
+                       HorizontalOptions="CenterAndExpand"
+                       />
+                </StackLayout>
+                <!-- 뉴스 카테고리 버튼 -->
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="button1"
+                            Text="정치" FontSize="50" 
+                            WidthRequest="250" HeightRequest="80" 
+                            HorizontalOptions="CenterAndExpand"
+                            Clicked="newsButtonClicked"
+                            />
+                    <Button x:Name="button2"
+                            Text="경제" FontSize="50" 
+                            WidthRequest="250" HeightRequest="80" 
+                            HorizontalOptions="CenterAndExpand"
+                            Clicked="newsButtonClicked"
+                            />
+                    <Button x:Name="button3"
+                            Text="연예" FontSize="50" 
+                            WidthRequest="250" HeightRequest="80" 
+                            HorizontalOptions="CenterAndExpand"
+                            Clicked="newsButtonClicked"
+                            />
+                    <Button x:Name="button4"
+                            Text="스포츠" FontSize="50" 
+                            WidthRequest="250" HeightRequest="80" 
+                            HorizontalOptions="CenterAndExpand"
+                            Clicked="newsButtonClicked"
+                            />
+                </StackLayout>
+            </StackLayout>
+            <!-- 뉴스 베너 -->
+            <AbsoluteLayout>
+                <Image Source="banner.png" Opacity="0.8" AbsoluteLayout.LayoutBounds="0, 800, 1930, 280"/>
+                <Label x:Name="newsGenre"
+                       Text="정치 속보" TextColor="White"
+                       FontSize="40"
+                       FontAttributes="Bold"
+                       AbsoluteLayout.LayoutBounds="100, 855, 500, 50"
+                       />
+                <Label x:Name="headline"
+                       TextColor="White"
+                       FontSize="60"
+                       AbsoluteLayout.LayoutBounds="1920, 910, 1920, 80"
+                       />
+            </AbsoluteLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
