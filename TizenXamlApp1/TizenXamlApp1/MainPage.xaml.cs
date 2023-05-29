@@ -25,7 +25,7 @@ namespace TizenXamlApp1
         };
         string[] newsCategory = { "정치", "경제", "연예", "스포츠" };
         private const string apiUrl = "https://api.openai.com/v1/chat/completions";
-        private const string apiKey = "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";
+        private const string apiKey = "";
         private async void backgroundChange() // 배경화면 변경 함수
         {
             Image[] bg = { background1, background2, background3, background4 };
